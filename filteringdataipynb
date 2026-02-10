@@ -1,0 +1,89 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOLQQ3XgKNZE/hXf2ED7/wX",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/karthikeya5116-cmyk/2025_2026-4074-karthikeya-ai-b-ds/blob/main/filteringdataipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "blAcgMdy9j4y",
+        "outputId": "2602578f-8c86-4179-8ad0-1b227ea20dca"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "original DataFrame:\n",
+            "    ID     name  age  marks\n",
+            "0  101    alice   22     85\n",
+            "1  102      bob   25     78\n",
+            "2  103  charlie   23     92\n",
+            "3  104    david   24     88\n",
+            "4  105      eva   26     90\n",
+            "\n",
+            " Student with marks >85:\n",
+            "    ID     name  age  marks\n",
+            "2  103  charlie   23     92\n",
+            "3  104    david   24     88\n",
+            "4  105      eva   26     90\n",
+            "\n",
+            " Student with age <25:\n",
+            "    ID     name  age  marks\n",
+            "0  101    alice   22     85\n",
+            "2  103  charlie   23     92\n",
+            "3  104    david   24     88\n",
+            "    ID   name  age  marks\n",
+            "3  104  david   24     88\n",
+            "4  105    eva   26     90\n"
+          ]
+        }
+      ],
+      "source": [
+        "#filtering data\n",
+        "import pandas as pd\n",
+        "data = {\n",
+        "    'ID':[101,102,103,104,105],\n",
+        "    'name':[\"alice\",\"bob\",\"charlie\",\"david\",\"eva\"],\n",
+        "    'age':[22,25,23,24,26],\n",
+        "    'marks':[85,78,92,88,90]\n",
+        "}\n",
+        "df=pd.DataFrame(data)\n",
+        "print(\"original DataFrame:\")\n",
+        "print(df)\n",
+        "print(\"\\n Student with marks >85:\")\n",
+        "print(df[df['marks']>85])\n",
+        "print('\\n Student with age <25:')\n",
+        "print(df[df['age']<25])\n",
+        "print(df[(df['age'] > 23) & (df['marks'] >= 88)])"
+      ]
+    }
+  ]
+}
